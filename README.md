@@ -1,6 +1,8 @@
 # Generate Shared Access Signature like HMAC in .Net
 
  ```csharp
+using ApiToken;
+
 // Invoke class, can use Machine.Key in ASP.Net or some other controlled key.
 var apiTokenService = new ApiTokenService("your-key-here");
 
