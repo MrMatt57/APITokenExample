@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using Microsoft.IdentityModel.Tokens;
 
 namespace ApiToken
 {
@@ -84,14 +83,6 @@ namespace ApiToken
             if (!ValidateToken(token))
                 return null;
             return HttpUtility.UrlDecode(tokenValues["uid"]);
-        }
-        public string UrlEncodeToken(string token)
-        {
-            return Base64UrlEncoder.Encode(token);
-        }
-        public string UrlDecodeToken(string token)
-        {
-            return Base64UrlEncoder.Decode(token);
         }
         private Dictionary<string, string> ParseToken(string token)
         {

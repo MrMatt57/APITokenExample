@@ -37,7 +37,7 @@ namespace ApiTokenUnitTest
 
             // Encode Token in URL Safe Base64, obuscates values if desired.
             // Example: dWlkPXVzZXJuYW1lLXRvLXNlbmQmZXg9MjAxNy0wMS0wOVQxMjoyODo0Ni4xNzY5MDQzLTA1OjAwJnNuPXNDcGpaNFllaGRJRGViU2RDNE5KeEdmMHlmWUUvZHRVQTRYay9IS0ZYQ0E3SXJRMzhjSTZ4eWVqaUJJS1hmZzM1ck9ZTitEenNMRjdaTFhUanR4RTl3PT0
-            var encodedToken = apiTokenService.UrlEncodeToken(token);
+            //var encodedToken = apiTokenService.UrlEncodeToken(token);
           
             // *** Transmit token (unencoded or encoded)
 
@@ -46,9 +46,9 @@ namespace ApiTokenUnitTest
             Assert.IsTrue(validToken);
 
             // Verify Encoded Token
-            var plainToken = apiTokenService.UrlDecodeToken(encodedToken);
-            var validEnCodedToken = apiTokenService.ValidateToken(plainToken);
-            Assert.IsTrue(validToken);
+            //var plainToken = apiTokenService.UrlDecodeToken(encodedToken);
+            //var validEnCodedToken = apiTokenService.ValidateToken(plainToken);
+            //Assert.IsTrue(validToken);
 
             // Get user name from token
             var username = apiTokenService.GetUidFromToken(token);
@@ -91,14 +91,14 @@ namespace ApiTokenUnitTest
             Assert.IsNull(uid);
         }
 
-        [TestMethod]
-        public void TokenUrlEncoding()
-        {
-            var exp = DateTime.Now.AddMinutes(15);
-            var token = _apiTokenService.GenerateToken(_username, exp);
-            var encodedToken = _apiTokenService.UrlEncodeToken(token);
-            var decodedToken = _apiTokenService.UrlDecodeToken(encodedToken);
-            Assert.AreEqual(token, decodedToken);
-        }
+        //[TestMethod]
+        //public void TokenUrlEncoding()
+        //{
+        //    var exp = DateTime.Now.AddMinutes(15);
+        //    var token = _apiTokenService.GenerateToken(_username, exp);
+        //    var encodedToken = _apiTokenService.UrlEncodeToken(token);
+        //    var decodedToken = _apiTokenService.UrlDecodeToken(encodedToken);
+        //    Assert.AreEqual(token, decodedToken);
+        //}
     }
 }
